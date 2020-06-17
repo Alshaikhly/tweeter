@@ -1,0 +1,43 @@
+article {
+  border: solid;
+  margin-bottom: 5em;
+  opacity: 0.5;
+}
+
+article .tweet-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  color: gray;
+}
+
+article .tweet-header img {
+  display: block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+}
+
+article .tweet-body {
+  border-style: hidden;
+  border-bottom: solid;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+article .tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.0em;
+}
+
+article .tweet-footer h6 {
+  margin: 0em;
+}
+
+article:hover {
+  box-shadow: 0 5px 10px cadetblue;
+  opacity: 1.0;
+  font-weight: bold;
+ }
