@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 700px;
+  width: 1350px;
+  margin-top: 2em;
+}
+#show-form {
+  display: none;
 }
 
 .btn-counter {
@@ -28,8 +32,18 @@
   margin-top: 1rem;
   font-family: 'Bungee', cursive;
   font-size: 17px;
+  cursor: pointer;
 }
 
 .counter {
   font-family: 'Bungee', cursive;
+}
+
+#error {
+  border: solid;
+  border-color: red;
+  margin-left: 5em;
+  margin-right: 7em;
+  color: red;
+  display: none;
 }

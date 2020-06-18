@@ -24,7 +24,10 @@
     <!-- Top nav bar (fixed) -->
     <nav class="container">
       <span>tweeter app</span>
-      <span id="add-tweet">Write a new tweet</span>
+      <div id="add-tweet">
+      <span>Write a new tweet</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Arrows_down_animated.gif">
+      </div>
     </nav>
     <header>
       <div class="profile-pic">
@@ -37,8 +40,8 @@
     </header>
     <!-- Page-specific (main) content here -->
     <main>
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+      <section id="show-form" class="new-tweet">
+        <h2 id="error">🛑 No empty tweets or tweets over 140 characters are allowed! 🛑</h2>
         <form id="new-tweet" action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>

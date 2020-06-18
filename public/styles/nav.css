@@ -6,15 +6,26 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em;
  }
 
- .container {
+ nav div {
    display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   padding: 1.5em;
+   flex-direction: column;
+   cursor: pointer;
  }
 
+ nav div:hover {
+   
+ }
  #add-tweet {
   font-family: 'Source Sans Pro', sans-serif;
+ }
+
+ nav img {
+   height: 50px;
+   width: 50px;
+   margin-left: 50px;
  }

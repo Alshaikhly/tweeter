@@ -2,6 +2,7 @@ article {
   border: solid;
   margin-bottom: 5em;
   opacity: 0.5;
+  margin-top: 2em;
 }
 
 article .tweet-header {

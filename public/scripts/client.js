@@ -1,29 +1,4 @@
 
-//  let tweetData = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
-
  function createTweetElement(tweet) {
   // use variables to refactor code!
   let $tweet = `<article>
@@ -32,7 +7,7 @@
       <h4>${tweet.user.handle}</h4>
   </div>
   <div class="tweet-body">
-    <h5>${tweet.content.text}</h5>
+    <h5>${escape(tweet.content.text)}</h5>
   </div>
   <div class="tweet-footer">
       <h6>${tweet.created_at}</h6>
@@ -46,6 +21,11 @@
   
   return $tweet;
   }
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
 const renderTweets = function(tweets) {
   
@@ -54,8 +34,6 @@ const renderTweets = function(tweets) {
     $('#tweets-container').prepend($tweetElement);
   }
 }
-
-
 
 
 $(document).ready(function () {
@@ -69,12 +47,15 @@ $(document).ready(function () {
     // or const $tweetLength = data.split('=')[1].length
 
     if ($tweetLength <= 0 || $tweetLength > 140 || onlySpaces === '') {
-      alert('Please post an acceptable tweet length')
+        $('#error').slideDown('fast').delay(3000).slideUp('slow');
+     
     } else {
     $.post('/tweets',data)
     .then(function(data) {
       console.log("received >>", data);
       loadtweets()
+      $('#tweet-text').val('');
+      $('#tweet-text').focus();
     })}
   });
 
@@ -88,6 +69,11 @@ $(document).ready(function () {
         renderTweets(data);
       })
   }
+  $("#add-tweet").click(function() {
+    $("#show-form").slideDown("fast")
+    $('#tweet-text').focus();
+  });
+
   
   loadtweets()
 });
