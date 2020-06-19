@@ -1,6 +1,6 @@
 let tweetForm = false;
 
- function createTweetElement(tweet) {
+function createTweetElement(tweet) {
   const source = tweet.user;
 
   let $tweet = `<article>
@@ -22,15 +22,15 @@ let tweetForm = false;
       <button class="like">🖤</button>
     </div>
   </div>
-  </article>`
+  </article>`;
   
   return $tweet;
-  }
-  const escape =  function(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
+}
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const renderTweets = function(tweets) {
   
@@ -38,44 +38,45 @@ const renderTweets = function(tweets) {
     let $tweetElement = createTweetElement(tweet);
     $('#tweets-container').prepend($tweetElement);
   }
-}
+};
 
 
-$(document).ready(function () {
+$(document).ready(function() {
   $('#new-tweet').on('submit', function(event) {
 
     event.preventDefault();
 
-    const data = $(this).serialize()
+    const data = $(this).serialize();
     const $tweetLength = $('#tweet-text').val().length;
-    const onlySpaces = $('#tweet-text').val().replace(/ /g,'')
+    const onlySpaces = $('#tweet-text').val().replace(/ /g,'');
 
     if ($tweetLength <= 0 || $tweetLength > 140 || onlySpaces === '') {
-        $('#error').slideDown('fast').delay(3000).slideUp('slow');
+      $('#error').slideDown('fast').delay(3000).slideUp('slow');
      
     } else {
-    $.post('/tweets',data)
-    .then(function(data) {
-      console.log("received >>", data);
-      loadtweets()
-      $('#tweet-text').val('');
-      $('#tweet-text').focus();
-    })}
+      $.post('/tweets',data)
+        .then(function(data) {
+          console.log("received >>", data);
+          loadtweets();
+          $('#tweet-text').val('');
+          $('#tweet-text').focus();
+        });
+    }
   });
 
   const loadtweets = () => {
     $.getJSON('/tweets')
       .then(function(data) {
 
-        $('#tweets-container').empty()
+        $('#tweets-container').empty();
 
         renderTweets(data);
-      })
-  }
+      });
+  };
   $("#add-tweet").click(function() {
     if (!tweetForm) {
       tweetForm = true;
-      $("#show-form").slideDown("fast")
+      $("#show-form").slideDown("fast");
       $('#tweet-text').focus();
     } else {
       tweetForm = false;
@@ -83,5 +84,5 @@ $(document).ready(function () {
     }
   });
   
-  loadtweets()
+  loadtweets();
 });
