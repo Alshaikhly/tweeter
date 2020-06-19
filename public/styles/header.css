@@ -1,5 +1,5 @@
 header {
-  height: 400px;
+  height: 100%;
   width: 100%;
   background-color: #D8981F;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
@@ -9,9 +9,22 @@ header {
 .profile-pic {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .profile-name {
   display: flex;
   justify-content: center;
+  color: white;
+}
+@media only screen and (min-width: 1024px) {
+  .site-body {
+    display: flex;
+    margin-top: 170px;
+    margin-right: 100px;
+    margin-left: 50px;
+  }
+  header {
+    margin: 50px 150px 0px 0px;
+  }
 }

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 1350px;
+  width: 100%;
   margin-top: 2em;
 }
 #show-form {
@@ -23,7 +23,7 @@
 .tweet-form {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5em;
+  /* margin-bottom: 5em; */
 }
 
 #tweet-btn {

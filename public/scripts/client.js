@@ -1,4 +1,4 @@
-
+let tweetForm = false;
  function createTweetElement(tweet) {
   // use variables to refactor code!
   let $tweet = `<article>
@@ -70,10 +70,15 @@ $(document).ready(function () {
       })
   }
   $("#add-tweet").click(function() {
-    $("#show-form").slideDown("fast")
-    $('#tweet-text').focus();
+    if (!tweetForm) {
+      tweetForm = true;
+      $("#show-form").slideDown("fast")
+      $('#tweet-text').focus();
+    } else {
+      tweetForm = false;
+      $("#show-form").slideUp("fast");
+    }
   });
-
   
   loadtweets()
 });
