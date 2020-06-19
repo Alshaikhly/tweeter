@@ -23,6 +23,10 @@ Tweeter is a full stack web application focused on the client side. Built with N
 ### DevDependencies
 - Nodemon
 
-## Final Product
+## Final Product Screenshots
+!["Screenshot of homepage with toggle new tweet button"](https://github.com/Alshaikhly/tweeter/blob/master/Screenshots/Toggle%20features.png?raw=true)
+!["Screensht of composing a new tweet with character counter"](https://github.com/Alshaikhly/tweeter/blob/master/Screenshots/Char-counter.png?raw=true)
+["Warning on empty submissions or more than 140 characters"](https://github.com/Alshaikhly/tweeter/blob/master/Screenshots/warning.png?raw=true)
+["Responsive design"](https://github.com/Alshaikhly/tweeter/blob/master/Screenshots/Responsive%20design.png?raw=true)
 
 
