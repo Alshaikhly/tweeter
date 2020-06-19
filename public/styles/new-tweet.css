@@ -23,7 +23,6 @@
 .tweet-form {
   display: flex;
   justify-content: space-between;
-  /* margin-bottom: 5em; */
 }
 
 #tweet-btn {
@@ -42,8 +41,7 @@
 #error {
   border: solid;
   border-color: red;
-  margin-left: 5em;
-  margin-right: 7em;
   color: red;
   display: none;
+  text-align: center;
 }

@@ -1,0 +1,42 @@
+header {
+  height: 100%;
+  width: 100%;
+  background-color: #D8981F;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  margin-top: 120px;
+}
+
+header .profile-pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+header .profile-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+}
+
+@media only screen and (min-width: 1024px) {
+  .site-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 170px;
+    margin-right: 100px;
+    margin-left: 50px;
+  }
+  header {
+    margin: 50px 150px 0px 0px;
+  }
+}
+/*# sourceMappingURL=main.css.map */

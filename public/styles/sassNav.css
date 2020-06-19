@@ -1,0 +1,45 @@
+nav {
+  font-family: "Bungee", cursive;
+  height: 120px;
+  background-color: #4056A1;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.5em;
+}
+
+nav div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+}
+
+nav #add-tweet {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+nav img {
+  height: 50px;
+  width: 50px;
+  margin-left: 50px;
+}
+
+@media only screen and (max-width: 1023px) {
+  nav {
+    background-color: #D8981F;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  }
+}
+/*# sourceMappingURL=sassNav.css.map */

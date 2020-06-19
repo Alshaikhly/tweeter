@@ -1,10 +1,15 @@
 let tweetForm = false;
+
  function createTweetElement(tweet) {
-  // use variables to refactor code!
+  const source = tweet.user;
+
   let $tweet = `<article>
   <div class="tweet-header">
-      <img src="${tweet.user.avatars}">
-      <h4>${tweet.user.handle}</h4>
+    <div id="left-side-tweet">
+      <img src="${source.avatars}">
+      <h4>${source.name}</h4>
+    </div>
+      <h4>${source.handle}</h4>
   </div>
   <div class="tweet-body">
     <h5>${escape(tweet.content.text)}</h5>
@@ -44,7 +49,6 @@ $(document).ready(function () {
     const data = $(this).serialize()
     const $tweetLength = $('#tweet-text').val().length;
     const onlySpaces = $('#tweet-text').val().replace(/ /g,'')
-    // or const $tweetLength = data.split('=')[1].length
 
     if ($tweetLength <= 0 || $tweetLength > 140 || onlySpaces === '') {
         $('#error').slideDown('fast').delay(3000).slideUp('slow');
@@ -62,7 +66,6 @@ $(document).ready(function () {
   const loadtweets = () => {
     $.getJSON('/tweets')
       .then(function(data) {
-        console.log('data received >>', data);
 
         $('#tweets-container').empty()
 

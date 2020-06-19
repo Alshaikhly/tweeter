@@ -12,12 +12,16 @@ article .tweet-header {
   color: gray;
 }
 
+#left-side-tweet {
+  display: flex;
+}
 article .tweet-header img {
   display: block;
   max-width:230px;
   max-height:95px;
   width: auto;
   height: auto;
+  margin-right: 0.5em;
 }
 
 article .tweet-body {
