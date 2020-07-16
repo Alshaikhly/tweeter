@@ -1,6 +1,12 @@
-let tweetForm = false;
+let tweetForm = false; // used to control the hide and show of the tweet form when clicking create tweet
 
-function createTweetElement(tweet) {
+function convertMS(milliseconds) { // converts milliseconds to actual time
+  const date = new Date(milliseconds);
+
+  return date.toString();
+}
+
+function createTweetElement(tweet) { //the tweet container for every tweet whether new or from json
   const source = tweet.user;
 
   let $tweet = `<article>
@@ -15,7 +21,7 @@ function createTweetElement(tweet) {
     <h5>${escape(tweet.content.text)}</h5>
   </div>
   <div class="tweet-footer">
-      <h6>${tweet.created_at}</h6>
+      <h6>${convertMS(tweet.created_at)}</h6>
     <div class="tweet-icons">
       <button class="flag">🏴</button>
       <button class="retweet">🔁</button>
@@ -32,7 +38,7 @@ const escape =  function(str) {
   return div.innerHTML;
 };
 
-const renderTweets = function(tweets) {
+const renderTweets = function(tweets) { // loops through the tweets and calls the create tweet function
   
   for (const tweet of tweets) {
     let $tweetElement = createTweetElement(tweet);
@@ -40,10 +46,9 @@ const renderTweets = function(tweets) {
   }
 };
 
-
 $(document).ready(function() {
-  $('#new-tweet').on('submit', function(event) {
 
+  $('#new-tweet').on('submit', function(event) { // trims white space, validates the input length and shows errors
     event.preventDefault();
 
     const data = $(this).serialize();
@@ -52,7 +57,6 @@ $(document).ready(function() {
 
     if ($tweetLength <= 0 || $tweetLength > 140 || onlySpaces === '') {
       $('#error').slideDown('fast').delay(3000).slideUp('slow');
-     
     } else {
       $.post('/tweets',data)
         .then(function(data) {
@@ -60,6 +64,7 @@ $(document).ready(function() {
           loadtweets();
           $('#tweet-text').val('');
           $('#tweet-text').focus();
+          $('.counter').val(140);
         });
     }
   });
@@ -67,13 +72,12 @@ $(document).ready(function() {
   const loadtweets = () => {
     $.getJSON('/tweets')
       .then(function(data) {
-
         $('#tweets-container').empty();
-
         renderTweets(data);
       });
   };
-  $("#add-tweet").click(function() {
+
+  $("#add-tweet").click(function() { //uses tweetForm variable to hide or show the tweet form
     if (!tweetForm) {
       tweetForm = true;
       $("#show-form").slideDown("fast");
